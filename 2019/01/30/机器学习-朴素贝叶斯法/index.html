@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="贝叶斯法,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="shl&#39;s sky">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)P(Y)P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概率(">
+<meta name="keywords" content="贝叶斯法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-朴素贝叶斯法">
+<meta property="og:url" content="http://yoursite.com/2019/01/30/机器学习-朴素贝叶斯法/index.html">
 <meta property="og:site_name" content="shl&#39;s sky">
+<meta property="og:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)P(Y)P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概率(">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-30T11:26:28.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shl&#39;s sky">
+<meta name="twitter:title" content="机器学习-朴素贝叶斯法">
+<meta name="twitter:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)P(Y)P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概率(">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/30/机器学习-朴素贝叶斯法/">
 
 
 
 
 
-  <title>shl's sky</title>
+  <title>机器学习-朴素贝叶斯法 | shl's sky</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -214,9 +218,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/30/机器学习-朴素贝叶斯法/" itemprop="url">机器学习-朴素贝叶斯法</a></h1>
+          <h1 class="post-title" itemprop="name headline">机器学习-朴素贝叶斯法</h1>
         
 
         <div class="post-meta">
@@ -298,9 +300,7 @@
       
 
       
-        
-          
-            <h3 id="贝叶斯定理"><a href="#贝叶斯定理" class="headerlink" title="贝叶斯定理"></a><strong>贝叶斯定理</strong></h3><p>其实贝叶斯定理就是一个条件概率公式的变形，即</p>
+        <h3 id="贝叶斯定理"><a href="#贝叶斯定理" class="headerlink" title="贝叶斯定理"></a><strong>贝叶斯定理</strong></h3><p>其实贝叶斯定理就是一个条件概率公式的变形，即</p>
 <blockquote>
 <p>P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X)</p>
 <p>整理后可得，</p>
@@ -367,8 +367,6 @@
 </blockquote>
 <p>其中，Sj为第j维的输入有Sj个取值的可能性，而K则表示Y有K种取值的可能性，另外，因为LaTeX在这里排版比较恶心，注明下λ是在∑符号之外的。</p>
 
-          
-        
       
     </div>
     
@@ -383,357 +381,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/正则表达式之捕获组-非捕获组/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linfengshl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shl's sky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/30/正则表达式之捕获组-非捕获组/" itemprop="url">正则表达式之捕获组/非捕获组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-30T14:54:11+08:00">
-                2019-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/贝叶斯法/" rel="tag"># 贝叶斯法</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、捕获组语法"><a href="#一、捕获组语法" class="headerlink" title="一、捕获组语法"></a>一、捕获组语法</h2><table>
-<thead>
-<tr>
-<th><strong>字符</strong></th>
-<th><strong>描述</strong></th>
-<th><strong>示例</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(<em>pattern</em>)</td>
-<td>匹配pattern并捕获结果，自动设置组号。</td>
-<td><code>(abc)+d匹配abcd或者abcabcd</code></td>
-</tr>
-<tr>
-<td>(?&lt;<em>name</em>&gt;<em>pattern</em>)或(?’<em>name</em>‘<em>pattern</em>)</td>
-<td>匹配pattern并捕获结果，设置name为组名。</td>
-<td></td>
-</tr>
-<tr>
-<td>\num</td>
-<td>对捕获组的反向引用。其中 num 是一个正整数。</td>
-<td>`(\w)(\w)\2\1匹配abba</td>
-</tr>
-<tr>
-<td>\k&lt; <em>name</em> &gt; 或\k’ <em>name</em> ‘</td>
-<td>对命名捕获组的反向引用。其中 name 是捕获组名。</td>
-<td>(?<group>\w)abc\k<group>匹配xabcx</group></group></td>
-</tr>
-</tbody>
-</table>
-<p>使用小括号指定一个子表达式后，匹配这个子表达式的文本(也就是此分组捕获的内容)可以在表达式或其它程序中作进一步的处理。默认情况下，每个捕获组会自动拥有一个组号，规则是：从左向右，以分组的左括号为标志，第一个出现的分组的组号为1，第二个为2，以此类推。</p>
-<p>例如：模式串：<a href="http://www.baidu.com:8080/index.html#" target="_blank" rel="noopener">http://www.baidu.com:8080/index.html#</a>  </p>
-<p>正则表达式<code>(\w+):\/\/([^/:]+)(:\d+)?([^#:]*)</code>从左至右有四个组，序号分别是1，2，3，4</p>
-<h2 id="二、非捕获组语法"><a href="#二、非捕获组语法" class="headerlink" title="二、非捕获组语法"></a>二、非捕获组语法</h2><table>
-<thead>
-<tr>
-<th><strong>字符</strong></th>
-<th><strong>描述</strong></th>
-<th><strong>示例</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(?:<em>pattern</em>)</td>
-<td>匹配pattern，但不捕获匹配结果。</td>
-<td><code>industr(?:y｜es)匹配industry&#39;或&#39;industries&#39;。</code></td>
-</tr>
-<tr>
-<td>(?=<em>pattern</em>)</td>
-<td>零宽度正向预查，不捕获匹配结果。</td>
-<td><code>Windows (?=95｜98｜NT｜2000)匹配 &quot;Windows2000&quot; 中的 &quot;Windows&quot;不匹配 &quot;Windows3.1&quot; 中的 &quot;Windows&quot;。</code></td>
-</tr>
-<tr>
-<td>(?!<em>pattern</em>)</td>
-<td>零宽度负向预查，不捕获匹配结果。</td>
-<td><code>&#39;Windows (?!95｜98｜NT｜2000)&#39;匹配 &quot;Windows3.1&quot; 中的 &quot;Windows&quot;不匹配 &quot;Windows2000&quot; 中的 &quot;Windows&quot;。</code></td>
-</tr>
-<tr>
-<td>(?&lt;=<em>pattern</em>)</td>
-<td>零宽度正向回查，不捕获匹配结果。</td>
-<td><code>&#39;2000 (?&lt;=Office｜Word｜Excel)&#39;匹配 &quot; Office2000&quot; 中的 &quot;2000&quot;不匹配 &quot;Windows2000&quot; 中的 &quot;2000&quot;。</code></td>
-</tr>
-<tr>
-<td>(?&lt;!<em>pattern</em>)</td>
-<td>零宽度负向回查，不捕获匹配结果。</td>
-<td><code>&#39;2000 (?&lt;!Office｜Word｜Excel)&#39;匹配 &quot; Windows2000&quot; 中的 &quot;2000&quot;不匹配 &quot; Office2000&quot; 中的 &quot;2000&quot;。</code></td>
-</tr>
-</tbody>
-</table>
-<p>非捕获组只匹配结果，但不捕获结果，也不会分配组号，当然也不能在表达式和程序中做进一步处理。</p>
-<p>首先(?:pattern)与(pattern)不同之处只是在于不捕获结果。接下来的四个非捕获组用于匹配pattern（或者不匹配pattern）位置之前（或之后）的内容。匹配的结果不包括pattern。</p>
-<p>​      例如：</p>
-<p>(?&lt;=&lt;(\w+)&gt;).*(?=&lt;\/\1&gt;)匹配不包含属性的简单HTML标签内的内容。如：<div>hello</div>之中的hello，匹配结果不包括前缀<div>和后缀</div>。</p>
-<h2 id="三、注释"><a href="#三、注释" class="headerlink" title="三、注释"></a>三、注释</h2><table>
-<thead>
-<tr>
-<th><strong>字符</strong></th>
-<th><strong>描述</strong></th>
-<th><strong>示例</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(?#<em>comment</em>)</td>
-<td>comment是注释，不对正则表达式的处理产生任何影响</td>
-<td><code>`2[0-4]\d(?#200-249)｜25[0-5](?#250-255)｜1?\d\d?(?#0-199)匹配0-255的整数</code></td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/Hexo-GithubPage-Typora个人博客搭建/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linfengshl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shl's sky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/29/Hexo-GithubPage-Typora个人博客搭建/" itemprop="url">Hexo GithubPage Typora个人博客搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-29T16:20:41+08:00">
-                2019-01-29
-              </time>
+              <a href="/2019/01/30/正则表达式之捕获组-非捕获组/" rel="next" title="正则表达式之捕获组/非捕获组">
+                <i class="fa fa-chevron-left"></i> 正则表达式之捕获组/非捕获组
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h3 id="一、使用hexo搭建个人blog"><a href="#一、使用hexo搭建个人blog" class="headerlink" title="一、使用hexo搭建个人blog"></a>一、使用hexo搭建个人blog</h3><hr>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p>在_config.yml中增加github仓库配置。</p>
-<p><img src="/2019/01/29/Hexo-GithubPage-Typora个人博客搭建/image-20190129162552079.png" alt="image-20190129162552079"></p>
-<h3 id="二、可引用照片"><a href="#二、可引用照片" class="headerlink" title="二、可引用照片"></a>二、可引用照片</h3><p><img src="/2019/01/29/Hexo-GithubPage-Typora个人博客搭建/image-20190129162811759.png" alt="image-20190129162811759"></p>
-<h3 id="三、使用typora"><a href="#三、使用typora" class="headerlink" title="三、使用typora"></a>三、使用typora</h3><p>从官网上下载typora，然后设置成可命令行启动。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias typora="open -a typora"</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -743,10 +420,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -754,6 +432,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -774,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -826,6 +517,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#贝叶斯定理"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#朴素贝叶斯法"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数估计"><span class="nav-number">3.</span> <span class="nav-text">参数估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贝叶斯估计"><span class="nav-number">4.</span> <span class="nav-text">贝叶斯估计</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -959,6 +666,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
