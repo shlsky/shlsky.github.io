@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)*P(Y)/P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概">
+<meta name="description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  $ P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) $ 整理后可得， $ P(Y|X)=P(X|Y)*P(Y)/P(X)$  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则">
 <meta name="keywords" content="贝叶斯法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-朴素贝叶斯法">
 <meta property="og:url" content="http://yoursite.com/2019/01/30/机器学习-朴素贝叶斯法/index.html">
 <meta property="og:site_name" content="shl&#39;s sky">
-<meta property="og:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)*P(Y)/P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概">
+<meta property="og:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  $ P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) $ 整理后可得， $ P(Y|X)=P(X|Y)*P(Y)/P(X)$  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-02T02:17:42.067Z">
+<meta property="og:updated_time" content="2019-02-02T06:31:44.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-朴素贝叶斯法">
-<meta name="twitter:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)*P(Y)/P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概">
+<meta name="twitter:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  $ P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) $ 整理后可得， $ P(Y|X)=P(X|Y)*P(Y)/P(X)$  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则">
 
 
 
@@ -302,68 +302,67 @@
       
         <h3 id="贝叶斯定理"><a href="#贝叶斯定理" class="headerlink" title="贝叶斯定理"></a><strong>贝叶斯定理</strong></h3><p>其实贝叶斯定理就是一个条件概率公式的变形，即</p>
 <blockquote>
-<p>P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X)</p>
+<p>$ P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) $</p>
 <p>整理后可得，</p>
-<p>P(Y|X)=P(X|Y)*P(Y)/P(X)</p>
+<p>$ P(Y|X)=P(X|Y)*P(Y)/P(X)$</p>
 </blockquote>
 <p>这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概率( P(X|Y) )，当然，在其他方面也有很多类似的应用，所以贝叶斯定理是一个很强大的理论。</p>
 <p>那么，同样是药物检测的这个例子，如果我们有n个药物检测的指标，每个指标有若干个结果，能够用于检测m种病，那么，我们就需要得到这么个东西：</p>
 <blockquote>
-<p>P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))</p>
+<p>$P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))$</p>
 </blockquote>
 <p>我们知道</p>
 <blockquote>
-<p>P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))</p>
-<p>=P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)|Y=yk)P(Y=yk)/P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n))</p>
+<p>$P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n)) ​$</p>
+<p>$ =P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)|Y=yk)*P(Y=yk)/P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n))$</p>
 </blockquote>
-<p>也就是说，如果我们知道了检测结果X，想要知道最大可能得了哪种病Y，我们只需要计算出所有的P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))，并选择一个最大的yk即可。</p>
+<p>也就是说，如果我们知道了检测结果X，想要知道最大可能得了哪种病Y，我们只需要计算出所有的$P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))$，并选择一个最大的yk即可。</p>
 <p>看起来好像很理想，但是，我们需要维护一张非常大的表，即维护X(1),…,X(n)的各种取值的联合概率分布，以及他们在条件Y=yk下的联合概率分布，如果n,m很大，而且每个X的取值很多时，这样在计算效率和空间存储上会非常的低。</p>
 <p>因此我们需要对此做出点改进。</p>
 <h3 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a><strong>朴素贝叶斯法</strong></h3><p>朴素贝叶斯在英文里的写法叫(Naive Bayesian Model)，之所以它naive，是因为它用了一个较强的假设，它假设了X(1),…,X(n)是条件独立的，也就是</p>
 <blockquote>
-<p>P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)|Y=yk)</p>
-<p>=$\prod_{j=0}^n P(X(j)=x(j)|Y=yk)$</p>
+<p>$P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)|Y=yk)=\prod_{j=0}^n P(X(j)=x(j)|Y=yk)$</p>
 </blockquote>
 <p>所以我们可以根据这个假设把上面的式子改造一下</p>
 <blockquote>
-<p>P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))</p>
-<p>=P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)|Y=yk) * P(Y=yk) / P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n))</p>
-<p>=P(Y=yk) *$\prod_{j=0}^n P(X(j)=x(j)|Y=yk)$ / P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)) </p>
+<p>$P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))$</p>
+<p>$=P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)|Y=yk) * P(Y=yk) / P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n))$</p>
+<p>$=P(Y=yk) *\prod_{j=0}^n P(X(j)=x(j)|Y=yk) / P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)) $</p>
 </blockquote>
-<p>我们可以发现，对于给定的X来说，分母都是一样的，那么在给定的X条件下，P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))的大小只与分子有关，所以我们可以把分母去掉，得到</p>
+<p>我们可以发现，对于给定的X来说，分母都是一样的，那么在给定的X条件下，$P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))$的大小只与分子有关，所以我们可以把分母去掉，得到</p>
 <blockquote>
-<p>F(yk)=P(Y=yk)$\prod_{j=0}^n P(X(j)=x(j)|Y=yk)$</p>
+<p>$F(yk)=P(Y=yk) \prod_{j=0}^n P(X(j)=x(j)|Y=yk)$</p>
 </blockquote>
 <p>那么，我们只要计算出所有的F(yk)，选择一个最大的yk就是我们预测的结果，因此，可以表示成</p>
 <blockquote>
-<p>y=argmax yk P(Y=yk) * $\prod_{j=1}^n P(X(j)=x(j)|Y=yk)$   n表示属性数量。</p>
+<p>$y=argmax  (yk) P(Y=yk) * \prod_{j=1}^n P(X(j)=x(j)|Y=yk)$   n表示属性数量。</p>
 </blockquote>
 <h3 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a><strong>参数估计</strong></h3><p>我们简化了式子，但是也需要把这个式子中所有的变量全部求出来，我们发现变量有如下两个：</p>
 <blockquote>
-<p>P(Y=yk)</p>
-<p>P(X(j)=x(j)|Y=yk)</p>
+<p>$P(Y=yk)​$</p>
+<p>$P(X(j)=x(j)|Y=yk)$</p>
 </blockquote>
 <p>第一个式子很好求，即</p>
 <blockquote>
-<p>P(Y=yk)=$(\sum_{i=1}^N {y_i=yk}) /N​$</p>
+<p>$P(Y=yk)=(\sum_{i=1}^N {y_i=yk}) /N$</p>
 </blockquote>
 <p>其中N表示数据的个数，yi表示第i个数据的输出，函数I()表示真值函数，为真则值为1，为假则函数值为0</p>
 <p>那么第二个式子呢，根据条件概率公式，可得</p>
 <blockquote>
-<p>P(X(j)=x(j)|Y=yk)=$\sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk$</p>
+<p>$P(X(j)=x(j)|Y=yk)=\sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk​$</p>
 </blockquote>
 <p>其中x(j)i表示第i组数据的第j维的输入，yi表示第i组输出的输出。</p>
 <p>我们把式子整理一下(换一下变量写的好看点)就是</p>
 <blockquote>
-<p>P(Y=ck)=$(\sum_{i=1}^N {y_i=yk}) /N$</p>
-<p>P(X(j)=ajl|Y=ck)=$ \sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk$  N表示训练数据条数</p>
+<p>$P(Y=ck)=(\sum_{i=1}^N {y_i=yk}) /N$</p>
+<p>$P(X(j)=ajl|Y=ck)= \sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk$  N表示训练数据条数</p>
 </blockquote>
 <p>朴素贝叶斯法就是这样，只需要计算出用来学习的数据的这些值，就可以做预测了，但是，因为它假设了一个很强的前提条件，所以这样计算出的结果会有一些误差。</p>
 <h3 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a><strong>贝叶斯估计</strong></h3><p>上面那种估计方法叫极大似然估计，而用这种方法会出现一个比较极端的情况。 </p>
 <p>也就是可能因为分子或分母为0导致计算出来的概率有所偏差，所以我们可以加一个λ&gt;0，常取λ=1，这称为拉普拉斯平滑，加上λ之后，我们可以把式子改写成：</p>
 <blockquote>
-<p>P(Y=ck)=$(\sum_{i=1}^N {y_i=yk}) /N​$ +λN+Kλ</p>
-<p>P(X(j)=ajl|Y=ck)=$\sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk  +λ\sum_{i=1}^NY(i)=yk+Sjλ $</p>
+<p>$P(Y=ck)=(\sum_{i=1}^N {y_i=yk}) /N+λN+Kλ$</p>
+<p>$P(X(j)=ajl|Y=ck)=\sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk  +λ\sum_{i=1}^NY(i)=yk+Sjλ $</p>
 <p> 其中 N 表示训练数据条数，Sj为第j维的输入有Sj个取值的可能性，而K则表示Y有K种取值的可能性。</p>
 </blockquote>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h3><p>场景：判断用户发表的文档是不是侮辱性评论。</p>
@@ -407,6 +406,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/02/机器学习-决策树ID3/" rel="prev" title="机器学习-决策树ID3">
+                机器学习-决策树ID3 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -483,7 +486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -496,7 +499,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
