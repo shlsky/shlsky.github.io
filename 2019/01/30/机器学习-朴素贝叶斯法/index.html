@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="shl&#39;s sky">
 <meta property="og:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)*P(Y)/P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-01T03:57:54.876Z">
+<meta property="og:updated_time" content="2019-02-02T02:17:42.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-朴素贝叶斯法">
 <meta name="twitter:description" content="贝叶斯定理其实贝叶斯定理就是一个条件概率公式的变形，即  P(XY)=P(X|Y)∗P(Y)=P(Y|X)∗P(X) 整理后可得， P(Y|X)=P(X|Y)*P(Y)/P(X)  这么一变之后，我们就可以根据这个公式回答很多问题，例如，假设事件Y是患某一个疾病的概率，X是某检测成阳性的概率，如果我们知道如果患了该疾病，结果检测呈阳性的概率（P(X|Y)），也就能算出如果检测成阳性则患了该疾病的概">
@@ -322,7 +322,7 @@
 <h3 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a><strong>朴素贝叶斯法</strong></h3><p>朴素贝叶斯在英文里的写法叫(Naive Bayesian Model)，之所以它naive，是因为它用了一个较强的假设，它假设了X(1),…,X(n)是条件独立的，也就是</p>
 <blockquote>
 <p>P(X(1)=x(1),X(2)=x(2),…,X(n)=x(n)|Y=yk)</p>
-<p>=∏nj=1P(X(j)=x(j)|Y=yk)</p>
+<p>=$\prod_{j=0}^n P(X(j)=x(j)|Y=yk)$</p>
 </blockquote>
 <p>所以我们可以根据这个假设把上面的式子改造一下</p>
 <blockquote>
@@ -332,7 +332,7 @@
 </blockquote>
 <p>我们可以发现，对于给定的X来说，分母都是一样的，那么在给定的X条件下，P(Y=yk|X(1)=x(1),X(2)=x(2),…,X(n)=x(n))的大小只与分子有关，所以我们可以把分母去掉，得到</p>
 <blockquote>
-<p>F(yk)=P(Y=yk)∏jP(X(j)=x(j)|Y=yk)</p>
+<p>F(yk)=P(Y=yk)$\prod_{j=0}^n P(X(j)=x(j)|Y=yk)$</p>
 </blockquote>
 <p>那么，我们只要计算出所有的F(yk)，选择一个最大的yk就是我们预测的结果，因此，可以表示成</p>
 <blockquote>
@@ -363,7 +363,7 @@
 <p>也就是可能因为分子或分母为0导致计算出来的概率有所偏差，所以我们可以加一个λ&gt;0，常取λ=1，这称为拉普拉斯平滑，加上λ之后，我们可以把式子改写成：</p>
 <blockquote>
 <p>P(Y=ck)=$(\sum_{i=1}^N {y_i=yk}) /N​$ +λN+Kλ</p>
-<p>P(X(j)=ajl|Y=ck)=$\sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk  +λ\sum_{i=1}^NY(i)=yk+Sjλ  $</p>
+<p>P(X(j)=ajl|Y=ck)=$\sum_{i=1}^N(X_ij=x(j),Y(i)=Yk) / \sum_{i=1}^NY(i)=yk  +λ\sum_{i=1}^NY(i)=yk+Sjλ $</p>
 <p> 其中 N 表示训练数据条数，Sj为第j维的输入有Sj个取值的可能性，而K则表示Y有K种取值的可能性。</p>
 </blockquote>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h3><p>场景：判断用户发表的文档是不是侮辱性评论。</p>
@@ -729,6 +729,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
