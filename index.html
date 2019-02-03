@@ -360,184 +360,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/机器学习-决策树/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linfengshl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shl's sky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/02/机器学习-决策树/" itemprop="url">机器学习-决策树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-02T14:35:55+08:00">
-                2019-02-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><hr>
-<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><strong>决策树是表示基于特征对实例进行分类的树形结构</strong></p>
-<p><img src="/2019/02/02/机器学习-决策树/image-20190202160305519.png" alt="image-20190202160305519"></p>
-<p>​      从给定的训练数据集中，依据特征选择的准则，递归的选择最优划分特征，并根据此特征将训练数据进行分割，使得各子数据集有一个最好的分类的过程。 </p>
-<p>决策树算法3要素： </p>
-<ul>
-<li>特征选择</li>
-<li>决策树生成</li>
-<li>决策树剪枝</li>
-</ul>
-<p><strong>特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决策树高度低，决策路径短，决策效率高</strong></p>
-<h4 id="决策树与条件概率分布等价"><a href="#决策树与条件概率分布等价" class="headerlink" title="决策树与条件概率分布等价"></a>决策树与条件概率分布等价</h4><p>决策树还表示给定特征条件下类的条件概率分布。这一条件概率分布定义在特征空间的一个划分(partition)上，将特征空间划分为互不相交的单元(cell)或区域(region)，并在每个单元定义一个类的概率分布就构成了一个条件概率分布。</p>
-<p>决策树构建过程中要使得决策树的复杂度最小</p>
-<p>$T_{cost} =argmin{\sum_t^{N(t)} P(t|x_1…x_t) *Deep(t)}$  </p>
-<p>$N(t)​$表示决策树所有叶节点，$P(t|x_1…x_t) ​$表示分类为t的条件概率，$Deep(t)​$表示搜索到叶节点t的深度。</p>
-<p>优秀的决策树$T_{cost}$应该是最小的。</p>
-<h3 id="ID3算法-信息增益"><a href="#ID3算法-信息增益" class="headerlink" title="ID3算法(信息增益)"></a>ID3算法(信息增益)</h3><hr>
-<p><strong>信息熵</strong></p>
-<p>熵：度量随机变量的不确定性。（纯度）</p>
-<p>定义：假设随机变量X的可能取值有x1，x2， … , xn 对于每一个可能的取值xi，其概率</p>
-<blockquote>
-<p>$P(X=x_i) = p_i  , ( i = 1,2, … , n) $</p>
-</blockquote>
-<p>因此随机变量X的熵：</p>
-<blockquote>
-<p>$H(X)=-\sum_{i=1}^np_ilog_{2}p_i$</p>
-</blockquote>
-<p><strong>信息增益</strong></p>
-<p>划分前样本集合D的熵是一定的 ，entroy(前)， 使用某个特征A划分数据集D，计算划分后的数据子集的熵 entroy(后) </p>
-<p>​                                   <strong>信息增益 =</strong>  <strong>entroy(前) -</strong>  <strong>entroy(后)</strong> </p>
-<p>信息增益的数学公式：</p>
-<p>$IG(D,A)=H(D)-H(D|A)$</p>
-<p>$IG(D,a)=Entropy(D)-\sum\limits_{values(a)}\cfrac{|S_a(v)|}{S} Entropy(S_a(v))$</p>
-<p>$vale({a})$表示特征a的值集合，$S_a(v)$表示值a划分的子集合。</p>
-<p>$H_a(D)= - \sum\limits_{values(a)}\cfrac{|S_a(v)|}{|D|}log_2\cfrac{|S_a(v)|}{|D|}$     （a是类别时表示集合的信息熵，a是特征时，表示的是集合中特征a的信息熵）</p>
-<p>信息增益值的大小是相对与训练数据集而言的，并没有绝对的意义，在分类问题困难时，即训练数据集的经验熵大的时候，信息增益值会偏大。因此信息增益比较 偏向取值较多的特征。</p>
-<h3 id="ID4-5（信息增益率"><a href="#ID4-5（信息增益率" class="headerlink" title="ID4.5（信息增益率)"></a>ID4.5（信息增益率)</h3><hr>
-<p><strong>信息增益率</strong></p>
-<p>$IG_r=\cfrac{IG(D,a)}{H_a(D)}$</p>
-<p><strong>信息增益比本质： 是在信息增益的基础之上乘上一个惩罚参数。特征个数较多时，惩罚参数较小；特征个数较少时，惩罚参数较大。</strong></p>
-<p> <strong>惩罚参数</strong>：数据集D以特征A作为随机变量的熵的倒数，即：将特征A取值相同的样本划分到同一个子集中（之前所说数据集的熵是依据类别进行划分的）**</p>
-<p>当特征取值较少时HA(D)的值较小，因此其倒数较大，因而信息增益比较大。因而偏向取值较少的特征。 </p>
-<p> <strong>使用信息增益比**</strong>：基于以上缺点，并不是直接选择信息增益率最大的特征，而是现在候选特征中找出信息增益高于平均水平的特征，然后在这些特征中再选择信息增益率最高的特征。**    </p>
-<h3 id="CART算法-分类与回归树"><a href="#CART算法-分类与回归树" class="headerlink" title="CART算法(分类与回归树)"></a>CART算法(分类与回归树)</h3><hr>
-<p>CART是在给定的输入随机变量X条件下输出变量Y的条件概率分布的学习方法。</p>
-<p><strong>基尼指数</strong></p>
-<p>分类问题中，假设有K个类，样本点属于第k个类的概率为$p_k$，则概率分布的基尼指数定义为</p>
-<blockquote>
-<p>$Gini(p)=\sum\limits_{k=1}\limits^Kp_k(1-p_k) = 1-\sum\limits_{k=1}\limits^Kp_k^2​$</p>
-</blockquote>
-<p>则在特征A的条件下，集合D的基尼指数定义为</p>
-<blockquote>
-<p>$Gini(D,A) =\sum\limits_{a\in{values(A)}}\limits^{values(A)}\cfrac{|D_a|}{|D|}Gini(D_a)$</p>
-</blockquote>
-<p><strong>决策树</strong>(下期在完善)</p>
-<p>用基尼指数训练决策树时，<strong>选择基尼指数最小的特征作为切分特征!!!</strong></p>
-<p><strong>回归树</strong></p>
-<p><img src="/2019/02/02/机器学习-决策树/image-20190202181541824.png" alt="image-20190202181541824"></p>
-<p><img src="/2019/02/02/机器学习-决策树/image-20190202181640473.png" alt="image-20190202181640473"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/30/机器学习-朴素贝叶斯法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -676,6 +498,193 @@
 </blockquote>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h3><p>场景：判断用户发表的文档是不是侮辱性评论。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># author:shl.sky</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    mock数据</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    postingList = [[<span class="string">' my'</span>, <span class="string">'dog'</span>, <span class="string">'has'</span>, <span class="string">'flea'</span>, <span class="string">'problems'</span>, <span class="string">'help'</span>, <span class="string">'please'</span>],</span><br><span class="line">                   [<span class="string">'maybe'</span>, <span class="string">'not'</span>, <span class="string">'take'</span>, <span class="string">'him'</span>, <span class="string">'to'</span>, <span class="string">'dog'</span>, <span class="string">'park'</span>, <span class="string">'stupid'</span>],</span><br><span class="line">                   [<span class="string">'my'</span>, <span class="string">'dalmation'</span>, <span class="string">'is'</span>, <span class="string">'so'</span>, <span class="string">'cute'</span>, <span class="string">'I'</span>, <span class="string">'love'</span>, <span class="string">'him'</span>],</span><br><span class="line">                   [<span class="string">'stop'</span>, <span class="string">'posting'</span>, <span class="string">'stupid'</span>, <span class="string">'worthless'</span>, <span class="string">'garbage'</span>],</span><br><span class="line">                   [<span class="string">'mr'</span>, <span class="string">'licks'</span>, <span class="string">'ate'</span>, <span class="string">'my'</span>, <span class="string">'steak'</span>, <span class="string">'how'</span>, <span class="string">' to'</span>, <span class="string">'stop'</span>, <span class="string">'him'</span>],</span><br><span class="line">                   [<span class="string">'quit'</span>, <span class="string">'buying'</span>, <span class="string">'worthless'</span>, <span class="string">'dog'</span>, <span class="string">'food'</span>, <span class="string">'stupid'</span>]]</span><br><span class="line">    classVec = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]  <span class="comment"># 1 代表 侮辱性 文字， 0 代表 正常 言论 return postingList, classVec</span></span><br><span class="line">    <span class="keyword">return</span> postingList, classVec</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createVocabList</span><span class="params">(dataSet)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    收集文档关键词全集</span></span><br><span class="line"><span class="string">    :param dataSet:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    flatten = <span class="keyword">lambda</span> x: [y <span class="keyword">for</span> l <span class="keyword">in</span> x <span class="keyword">for</span> y <span class="keyword">in</span> flatten(l)] <span class="keyword">if</span> type(x) <span class="keyword">is</span> list <span class="keyword">else</span> [x]</span><br><span class="line">    vocabSet = set(flatten(dataSet))</span><br><span class="line">    <span class="keyword">return</span> list(vocabSet)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setOfWords2Vec</span><span class="params">(vocabList, inputSet)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    构建词组向量</span></span><br><span class="line"><span class="string">    :param vocabList:</span></span><br><span class="line"><span class="string">    :param inputSet:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">return</span> [(<span class="number">1</span> <span class="keyword">if</span> w <span class="keyword">in</span> inputSet <span class="keyword">else</span> <span class="number">0</span>) <span class="keyword">for</span> w <span class="keyword">in</span> vocabList]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># trainMatrix的长度应该与trainCategory的长度一致</span></span><br><span class="line"><span class="comment"># trainMatrix的每一行代表一篇文档出现的单词向量(该向量的长度是所有文档的关键字全集长度)</span></span><br><span class="line"><span class="comment"># trainMatrix的每一行都是用0/1表示文档中是否有某个单词</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trainNB0</span><span class="params">(trainMatrix, trainCategory)</span>:</span></span><br><span class="line">    numTrainDocs = len(trainMatrix)</span><br><span class="line">    numWords = len(trainMatrix[<span class="number">0</span>])</span><br><span class="line">    <span class="comment"># 侮辱性文档的先验概率</span></span><br><span class="line">    pAbusive = sum(trainCategory) / float(numTrainDocs)</span><br><span class="line">    p0Num, p1Num = ones(numWords), ones(numWords)  <span class="comment"># 拉普拉斯校准</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 属于类别0和1文档的总词数</span></span><br><span class="line">    p0Denom, p1Denom = <span class="number">1.0</span>, <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numTrainDocs):</span><br><span class="line">        <span class="keyword">if</span> trainCategory[i] == <span class="number">1</span>:</span><br><span class="line">            p1Num += trainMatrix[i]</span><br><span class="line">            <span class="comment"># 拉普拉斯校准，所谓拉普拉斯平滑就是在计算类先验概率和属性条件概率时，在分子上则添加这个修正量与分类数目的乘积</span></span><br><span class="line">            p1Denom += sum(trainMatrix[i])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># P(X=x|Y=c)=</span></span><br><span class="line">            p0Num += trainMatrix[i]</span><br><span class="line">            <span class="comment"># 拉普拉斯校准</span></span><br><span class="line">            p0Denom += sum(trainMatrix[i])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 连乘无限小，python表示为0，所以使用对数，然后求和（单调性和极值相同）</span></span><br><span class="line">    p1Vect = log(p1Num / p1Denom)</span><br><span class="line">    p0Vect = log(p0Num / p0Denom)</span><br><span class="line">    <span class="keyword">return</span> p0Vect, p1Vect, pAbusive</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classifyNBWithLn</span><span class="params">(vec2Classify, p0Vec, p1Vec, pClass1)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    这是二分类</span></span><br><span class="line"><span class="string">    :param vec2Classify: </span></span><br><span class="line"><span class="string">    :param p0Vec: </span></span><br><span class="line"><span class="string">    :param p1Vec: </span></span><br><span class="line"><span class="string">    :param pClass1: 侮辱文档的先验概率</span></span><br><span class="line"><span class="string">    :return: </span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># 是侮辱文档的后验概率</span></span><br><span class="line">    p1 = sum(vec2Classify * p1Vec) + log(pClass1)</span><br><span class="line">    p0 = sum(vec2Classify * p0Vec) + log(<span class="number">1.0</span> - pClass1)</span><br><span class="line">    <span class="keyword">if</span> p1 &gt; p0:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createTwoDimVec</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    训练出每个分类的最大似然估计的先验分布</span></span><br><span class="line"><span class="string">    :return: </span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    listOPosts, listClasses = loadDataSet()</span><br><span class="line">    allVocabVec = createVocabList(listOPosts)</span><br><span class="line"></span><br><span class="line">    trainMat = [setOfWords2Vec(allVocabVec, example) <span class="keyword">for</span> example <span class="keyword">in</span> listOPosts]</span><br><span class="line">    <span class="keyword">return</span> allVocabVec, trainMat, listClasses</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testBayes</span><span class="params">()</span>:</span></span><br><span class="line">    myVocabList, trainMat, listClasses = createTwoDimVec()</span><br><span class="line">    p0V, p1V, pAb = trainNB0(trainMat, listClasses)</span><br><span class="line"></span><br><span class="line">    testEntry = [<span class="string">'dog'</span>, <span class="string">'stop'</span>, <span class="string">'is'</span>]</span><br><span class="line">    thisDoc = array(setOfWords2Vec(myVocabList, testEntry))</span><br><span class="line">    <span class="keyword">print</span> testEntry, <span class="string">'classified as:'</span>, classifyNBWithLn(thisDoc, p0V, p1V, pAb)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">testBayes()</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/机器学习-决策树/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linfengshl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shl's sky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/机器学习-决策树/" itemprop="url">机器学习-决策树</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T14:35:55+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><hr>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><strong>决策树是表示基于特征对实例进行分类的树形结构</strong></p>
+<p><img src="/2018/02/02/机器学习-决策树/image-20190202160305519.png" alt="image-20190202160305519"></p>
+<p>​      从给定的训练数据集中，依据特征选择的准则，递归的选择最优划分特征，并根据此特征将训练数据进行分割，使得各子数据集有一个最好的分类的过程。 </p>
+<p>决策树算法3要素： </p>
+<ul>
+<li>特征选择</li>
+<li>决策树生成</li>
+<li>决策树剪枝</li>
+</ul>
+<p><strong>特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决策树高度低，决策路径短，决策效率高</strong></p>
+<h4 id="决策树与条件概率分布等价"><a href="#决策树与条件概率分布等价" class="headerlink" title="决策树与条件概率分布等价"></a>决策树与条件概率分布等价</h4><p>决策树还表示给定特征条件下类的条件概率分布。这一条件概率分布定义在特征空间的一个划分(partition)上，将特征空间划分为互不相交的单元(cell)或区域(region)，并在每个单元定义一个类的概率分布就构成了一个条件概率分布。</p>
+<p>决策树构建过程中要使得决策树的复杂度最小</p>
+<p>$T_{cost} =argmin{\sum_t^{N(t)} P(t|x_1…x_t) *Deep(t)}$  </p>
+<p>$N(t)​$表示决策树所有叶节点，$P(t|x_1…x_t) ​$表示分类为t的条件概率，$Deep(t)​$表示搜索到叶节点t的深度。</p>
+<p>优秀的决策树$T_{cost}$应该是最小的。</p>
+<h3 id="ID3算法-信息增益"><a href="#ID3算法-信息增益" class="headerlink" title="ID3算法(信息增益)"></a>ID3算法(信息增益)</h3><hr>
+<p><strong>信息熵</strong></p>
+<p>熵：度量随机变量的不确定性。（纯度）</p>
+<p>定义：假设随机变量X的可能取值有x1，x2， … , xn 对于每一个可能的取值xi，其概率</p>
+<blockquote>
+<p>$P(X=x_i) = p_i  , ( i = 1,2, … , n) $</p>
+</blockquote>
+<p>因此随机变量X的熵：</p>
+<blockquote>
+<p>$H(X)=-\sum_{i=1}^np_ilog_{2}p_i$</p>
+</blockquote>
+<p><strong>信息增益</strong></p>
+<p>划分前样本集合D的熵是一定的 ，entroy(前)， 使用某个特征A划分数据集D，计算划分后的数据子集的熵 entroy(后) </p>
+<p>​                                   <strong>信息增益 =</strong>  <strong>entroy(前) -</strong>  <strong>entroy(后)</strong> </p>
+<p>信息增益的数学公式：</p>
+<p>$IG(D,A)=H(D)-H(D|A)$</p>
+<p>$IG(D,a)=Entropy(D)-\sum\limits_{values(a)}\cfrac{|S_a(v)|}{S} Entropy(S_a(v))$</p>
+<p>$vale({a})$表示特征a的值集合，$S_a(v)$表示值a划分的子集合。</p>
+<p>$H_a(D)= - \sum\limits_{values(a)}\cfrac{|S_a(v)|}{|D|}log_2\cfrac{|S_a(v)|}{|D|}$     （a是类别时表示集合的信息熵，a是特征时，表示的是集合中特征a的信息熵）</p>
+<p>信息增益值的大小是相对与训练数据集而言的，并没有绝对的意义，在分类问题困难时，即训练数据集的经验熵大的时候，信息增益值会偏大。因此信息增益比较 偏向取值较多的特征。</p>
+<h3 id="ID4-5（信息增益率"><a href="#ID4-5（信息增益率" class="headerlink" title="ID4.5（信息增益率)"></a>ID4.5（信息增益率)</h3><hr>
+<p><strong>信息增益率</strong></p>
+<p>$IG_r=\cfrac{IG(D,a)}{H_a(D)}$</p>
+<p><strong>信息增益比本质： 是在信息增益的基础之上乘上一个惩罚参数。特征个数较多时，惩罚参数较小；特征个数较少时，惩罚参数较大。</strong></p>
+<p> <strong>惩罚参数</strong>：数据集D以特征A作为随机变量的熵的倒数，即：将特征A取值相同的样本划分到同一个子集中（之前所说数据集的熵是依据类别进行划分的）**</p>
+<p>当特征取值较少时HA(D)的值较小，因此其倒数较大，因而信息增益比较大。因而偏向取值较少的特征。 </p>
+<p> <strong>使用信息增益比**</strong>：基于以上缺点，并不是直接选择信息增益率最大的特征，而是现在候选特征中找出信息增益高于平均水平的特征，然后在这些特征中再选择信息增益率最高的特征。**    </p>
+<h3 id="CART算法-分类与回归树"><a href="#CART算法-分类与回归树" class="headerlink" title="CART算法(分类与回归树)"></a>CART算法(分类与回归树)</h3><hr>
+<p>CART是在给定的输入随机变量X条件下输出变量Y的条件概率分布的学习方法。</p>
+<p>CART树生成就是递归地构建二叉决策树的过程。对回归树用<strong>平方误差最小化准则</strong>，进行切分变量的选择。对分类树用<strong>基尼指数(Gini index)最小化准则</strong>，进行特征选择生成二叉树。</p>
+<p><strong>基尼指数</strong></p>
+<p>分类问题中，假设有K个类，样本点属于第k个类的概率为$p_k$，则概率分布的基尼指数定义为</p>
+<blockquote>
+<p>$Gini(p)=\sum\limits_{k=1}\limits^Kp_k(1-p_k) = 1-\sum\limits_{k=1}\limits^Kp_k^2​$</p>
+</blockquote>
+<p>则在特征A的条件下，集合D的基尼指数定义为</p>
+<blockquote>
+<p>$Gini(D,A) =\sum\limits_{a\in{values(A)}}\limits^{values(A)}\cfrac{|D_a|}{|D|}Gini(D_a)​$</p>
+</blockquote>
+<p><strong>决策树</strong></p>
+<p>用基尼指数训练决策树时，<strong>选择基尼指数最小的特征作为切分特征!!!</strong></p>
+<p><strong>回归树</strong></p>
+<p><img src="/2018/02/02/机器学习-决策树/image-20190202181541824.png" alt="image-20190202181541824"></p>
+<p><img src="/2018/02/02/机器学习-决策树/image-20190202181640473.png" alt="image-20190202181640473"></p>
+<ul>
+<li>上式(5.19)需要解释一下，选定了j,s 要使$\min\limits_{c_1}\sum\limits_{x_i\in R_1(j,s)}(y_i-c_1)^2$和$\min\limits_{c_2}\sum\limits_{x_i\in R_2(j,s)}(y_i-c_2)^2$</li>
+</ul>
+<p>则$c_1,c_2$要等于式(5.20),我们知道了回归树构建算法，就能递归地构建回归树。</p>
+<ul>
+<li>上式(5.19)中j，s都是变动的，$s\in values(j)，j\in(特征维度)$</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>  后续完善 </p>
 
           
         

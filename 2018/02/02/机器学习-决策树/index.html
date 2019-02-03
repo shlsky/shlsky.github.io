@@ -79,20 +79,22 @@
 
 
 
-<meta name="description" content="正则化正则化一类优化算法的思维方式：">
+<meta name="description" content="决策树 定义决策树是表示基于特征对实例进行分类的树形结构  ​      从给定的训练数据集中，依据特征选择的准则，递归的选择最优划分特征，并根据此特征将训练数据进行分割，使得各子数据集有一个最好的分类的过程。  决策树算法3要素：   特征选择 决策树生成 决策树剪枝  特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习-正则化">
-<meta property="og:url" content="http://yoursite.com/2019/02/02/机器学习-正则化/index.html">
+<meta property="og:title" content="机器学习-决策树">
+<meta property="og:url" content="http://yoursite.com/2018/02/02/机器学习-决策树/index.html">
 <meta property="og:site_name" content="shl&#39;s sky">
-<meta property="og:description" content="正则化正则化一类优化算法的思维方式：">
+<meta property="og:description" content="决策树 定义决策树是表示基于特征对实例进行分类的树形结构  ​      从给定的训练数据集中，依据特征选择的准则，递归的选择最优划分特征，并根据此特征将训练数据进行分割，使得各子数据集有一个最好的分类的过程。  决策树算法3要素：   特征选择 决策树生成 决策树剪枝  特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/02/02/机器学习-正则化/image-20190202182044853.png">
-<meta property="og:updated_time" content="2019-02-02T10:22:13.418Z">
+<meta property="og:image" content="http://yoursite.com/2018/02/02/机器学习-决策树/image-20190202160305519.png">
+<meta property="og:image" content="http://yoursite.com/2018/02/02/机器学习-决策树/image-20190202181541824.png">
+<meta property="og:image" content="http://yoursite.com/2018/02/02/机器学习-决策树/image-20190202181640473.png">
+<meta property="og:updated_time" content="2019-02-03T06:45:04.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习-正则化">
-<meta name="twitter:description" content="正则化正则化一类优化算法的思维方式：">
-<meta name="twitter:image" content="http://yoursite.com/2019/02/02/机器学习-正则化/image-20190202182044853.png">
+<meta name="twitter:title" content="机器学习-决策树">
+<meta name="twitter:description" content="决策树 定义决策树是表示基于特征对实例进行分类的树形结构  ​      从给定的训练数据集中，依据特征选择的准则，递归的选择最优划分特征，并根据此特征将训练数据进行分割，使得各子数据集有一个最好的分类的过程。  决策树算法3要素：   特征选择 决策树生成 决策树剪枝  特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决">
+<meta name="twitter:image" content="http://yoursite.com/2018/02/02/机器学习-决策树/image-20190202160305519.png">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/02/机器学习-正则化/">
+  <link rel="canonical" href="http://yoursite.com/2018/02/02/机器学习-决策树/">
 
 
 
 
 
-  <title>机器学习-正则化 | shl's sky</title>
+  <title>机器学习-决策树 | shl's sky</title>
   
 
 
@@ -245,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/机器学习-正则化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/机器学习-决策树/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="linfengshl">
@@ -262,7 +264,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习-正则化</h1>
+          <h1 class="post-title" itemprop="name headline">机器学习-决策树</h1>
         
 
         <div class="post-meta">
@@ -274,8 +276,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-02T18:18:12+08:00">
-                2019-02-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T14:35:55+08:00">
+                2018-02-02
               </time>
             
 
@@ -312,8 +314,74 @@
       
 
       
-        <h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>正则化一类优化算法的思维方式：</p>
-<p><img src="/2019/02/02/机器学习-正则化/image-20190202182044853.png" alt="image-20190202182044853"></p>
+        <h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><hr>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><strong>决策树是表示基于特征对实例进行分类的树形结构</strong></p>
+<p><img src="/2018/02/02/机器学习-决策树/image-20190202160305519.png" alt="image-20190202160305519"></p>
+<p>​      从给定的训练数据集中，依据特征选择的准则，递归的选择最优划分特征，并根据此特征将训练数据进行分割，使得各子数据集有一个最好的分类的过程。 </p>
+<p>决策树算法3要素： </p>
+<ul>
+<li>特征选择</li>
+<li>决策树生成</li>
+<li>决策树剪枝</li>
+</ul>
+<p><strong>特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决策树高度低，决策路径短，决策效率高</strong></p>
+<h4 id="决策树与条件概率分布等价"><a href="#决策树与条件概率分布等价" class="headerlink" title="决策树与条件概率分布等价"></a>决策树与条件概率分布等价</h4><p>决策树还表示给定特征条件下类的条件概率分布。这一条件概率分布定义在特征空间的一个划分(partition)上，将特征空间划分为互不相交的单元(cell)或区域(region)，并在每个单元定义一个类的概率分布就构成了一个条件概率分布。</p>
+<p>决策树构建过程中要使得决策树的复杂度最小</p>
+<p>$T_{cost} =argmin{\sum_t^{N(t)} P(t|x_1…x_t) *Deep(t)}$  </p>
+<p>$N(t)​$表示决策树所有叶节点，$P(t|x_1…x_t) ​$表示分类为t的条件概率，$Deep(t)​$表示搜索到叶节点t的深度。</p>
+<p>优秀的决策树$T_{cost}$应该是最小的。</p>
+<h3 id="ID3算法-信息增益"><a href="#ID3算法-信息增益" class="headerlink" title="ID3算法(信息增益)"></a>ID3算法(信息增益)</h3><hr>
+<p><strong>信息熵</strong></p>
+<p>熵：度量随机变量的不确定性。（纯度）</p>
+<p>定义：假设随机变量X的可能取值有x1，x2， … , xn 对于每一个可能的取值xi，其概率</p>
+<blockquote>
+<p>$P(X=x_i) = p_i  , ( i = 1,2, … , n) $</p>
+</blockquote>
+<p>因此随机变量X的熵：</p>
+<blockquote>
+<p>$H(X)=-\sum_{i=1}^np_ilog_{2}p_i$</p>
+</blockquote>
+<p><strong>信息增益</strong></p>
+<p>划分前样本集合D的熵是一定的 ，entroy(前)， 使用某个特征A划分数据集D，计算划分后的数据子集的熵 entroy(后) </p>
+<p>​                                   <strong>信息增益 =</strong>  <strong>entroy(前) -</strong>  <strong>entroy(后)</strong> </p>
+<p>信息增益的数学公式：</p>
+<p>$IG(D,A)=H(D)-H(D|A)$</p>
+<p>$IG(D,a)=Entropy(D)-\sum\limits_{values(a)}\cfrac{|S_a(v)|}{S} Entropy(S_a(v))$</p>
+<p>$vale({a})$表示特征a的值集合，$S_a(v)$表示值a划分的子集合。</p>
+<p>$H_a(D)= - \sum\limits_{values(a)}\cfrac{|S_a(v)|}{|D|}log_2\cfrac{|S_a(v)|}{|D|}$     （a是类别时表示集合的信息熵，a是特征时，表示的是集合中特征a的信息熵）</p>
+<p>信息增益值的大小是相对与训练数据集而言的，并没有绝对的意义，在分类问题困难时，即训练数据集的经验熵大的时候，信息增益值会偏大。因此信息增益比较 偏向取值较多的特征。</p>
+<h3 id="ID4-5（信息增益率"><a href="#ID4-5（信息增益率" class="headerlink" title="ID4.5（信息增益率)"></a>ID4.5（信息增益率)</h3><hr>
+<p><strong>信息增益率</strong></p>
+<p>$IG_r=\cfrac{IG(D,a)}{H_a(D)}$</p>
+<p><strong>信息增益比本质： 是在信息增益的基础之上乘上一个惩罚参数。特征个数较多时，惩罚参数较小；特征个数较少时，惩罚参数较大。</strong></p>
+<p> <strong>惩罚参数</strong>：数据集D以特征A作为随机变量的熵的倒数，即：将特征A取值相同的样本划分到同一个子集中（之前所说数据集的熵是依据类别进行划分的）**</p>
+<p>当特征取值较少时HA(D)的值较小，因此其倒数较大，因而信息增益比较大。因而偏向取值较少的特征。 </p>
+<p> <strong>使用信息增益比**</strong>：基于以上缺点，并不是直接选择信息增益率最大的特征，而是现在候选特征中找出信息增益高于平均水平的特征，然后在这些特征中再选择信息增益率最高的特征。**    </p>
+<h3 id="CART算法-分类与回归树"><a href="#CART算法-分类与回归树" class="headerlink" title="CART算法(分类与回归树)"></a>CART算法(分类与回归树)</h3><hr>
+<p>CART是在给定的输入随机变量X条件下输出变量Y的条件概率分布的学习方法。</p>
+<p>CART树生成就是递归地构建二叉决策树的过程。对回归树用<strong>平方误差最小化准则</strong>，进行切分变量的选择。对分类树用<strong>基尼指数(Gini index)最小化准则</strong>，进行特征选择生成二叉树。</p>
+<p><strong>基尼指数</strong></p>
+<p>分类问题中，假设有K个类，样本点属于第k个类的概率为$p_k$，则概率分布的基尼指数定义为</p>
+<blockquote>
+<p>$Gini(p)=\sum\limits_{k=1}\limits^Kp_k(1-p_k) = 1-\sum\limits_{k=1}\limits^Kp_k^2​$</p>
+</blockquote>
+<p>则在特征A的条件下，集合D的基尼指数定义为</p>
+<blockquote>
+<p>$Gini(D,A) =\sum\limits_{a\in{values(A)}}\limits^{values(A)}\cfrac{|D_a|}{|D|}Gini(D_a)​$</p>
+</blockquote>
+<p><strong>决策树</strong></p>
+<p>用基尼指数训练决策树时，<strong>选择基尼指数最小的特征作为切分特征!!!</strong></p>
+<p><strong>回归树</strong></p>
+<p><img src="/2018/02/02/机器学习-决策树/image-20190202181541824.png" alt="image-20190202181541824"></p>
+<p><img src="/2018/02/02/机器学习-决策树/image-20190202181640473.png" alt="image-20190202181640473"></p>
+<ul>
+<li>上式(5.19)需要解释一下，选定了j,s 要使$\min\limits_{c_1}\sum\limits_{x_i\in R_1(j,s)}(y_i-c_1)^2$和$\min\limits_{c_2}\sum\limits_{x_i\in R_2(j,s)}(y_i-c_2)^2$</li>
+</ul>
+<p>则$c_1,c_2$要等于式(5.20),我们知道了回归树构建算法，就能递归地构建回归树。</p>
+<ul>
+<li>上式(5.19)中j，s都是变动的，$s\in values(j)，j\in(特征维度)$</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>  后续完善 </p>
 
       
     </div>
@@ -344,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/30/机器学习-朴素贝叶斯法/" rel="next" title="机器学习-朴素贝叶斯法">
-                <i class="fa fa-chevron-left"></i> 机器学习-朴素贝叶斯法
+              <a href="/2018/01/30/正则表达式之捕获组-非捕获组/" rel="next" title="正则表达式之捕获组/非捕获组">
+                <i class="fa fa-chevron-left"></i> 正则表达式之捕获组/非捕获组
               </a>
             
           </div>
@@ -353,6 +421,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/30/机器学习-朴素贝叶斯法/" rel="prev" title="机器学习-朴素贝叶斯法">
+                机器学习-朴素贝叶斯法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -475,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-number">1.</span> <span class="nav-text">正则化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树"><span class="nav-number">1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树与条件概率分布等价"><span class="nav-number">1.2.</span> <span class="nav-text">决策树与条件概率分布等价</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法-信息增益"><span class="nav-number">2.</span> <span class="nav-text">ID3算法(信息增益)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID4-5（信息增益率"><span class="nav-number">3.</span> <span class="nav-text">ID4.5（信息增益率)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CART算法-分类与回归树"><span class="nav-number">4.</span> <span class="nav-text">CART算法(分类与回归树)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">5.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
