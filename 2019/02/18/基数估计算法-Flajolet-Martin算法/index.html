@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="shl&#39;s sky">
 <meta property="og:description" content="简介 说起基数估计算法的始祖，或许就是由Flajolet和Martin大佬发表的论文《  Probabilistic counting algorithms for data base applications》开始的吧。他们提出在大数据中基于概率来估计基数的算法，江湖人称 FM-sketch算法。 基础版首先定义一个hash函数：  $function \ hash(x): -&amp;gt;[0,1,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-18T10:50:39.176Z">
+<meta property="og:updated_time" content="2019-02-21T07:17:41.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基数估计算法(Flajolet-Martin算法)">
 <meta name="twitter:description" content="简介 说起基数估计算法的始祖，或许就是由Flajolet和Martin大佬发表的论文《  Probabilistic counting algorithms for data base applications》开始的吧。他们提出在大数据中基于概率来估计基数的算法，江湖人称 FM-sketch算法。 基础版首先定义一个hash函数：  $function \ hash(x): -&amp;gt;[0,1,">
@@ -126,7 +126,7 @@
 
 
 
-  <title>基数估计算法(Flajolet-Martin算法) | shl's sky</title>
+  <title>基数估计算法(Flajolet-Martin算法) | shl's sky</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -145,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -320,7 +320,7 @@
 <p>即</p>
 <p>$y=∑_\limits{k≥0}bit(y,k)2^k​$.​</p>
 <p>定义tail(y)表示y的二进制表示中末尾出现第一个1的位置(从0开始计数)，即连续0的个数：</p>
-<p>$tail(y)=\begin{cases}minbit(y,k)≠0 &amp;\text{if } y&gt;0 \ L &amp;\text{if } y=0\end{cases}$</p>
+<p>$tail(y)=\begin{cases}minbit(y,k)≠0 &amp;\text{if } y&gt;0 \\ L &amp;\text{if } y=0\end{cases}$</p>
 <p>定义BITMAP[0…L-1]数组，BITMAP[i] 表示在可重复集合M中有一个数经过hash后呈现</p>
 <p>$…1,0^i​$，即该hash值的二进制表示中末尾有连续i个0.</p>
 <p>具体BITMAP的计算如下：</p>
@@ -490,7 +490,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -742,7 +742,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

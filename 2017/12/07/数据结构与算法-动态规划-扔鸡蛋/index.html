@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="shl&#39;s sky">
 <meta property="og:description" content="动态规划 最优子结构 重叠子问题  算法设计包含四个步骤： 1）描述最优解的结构 2)  递归定义最优解的值 3)  按自底向上的方式计算最优解的值 4) 由计算出出的结果构造一个最优解 N层两蛋问题$f(n)=\min\limits_{i=1}\limits^n(\max(i-1,f(n-i))+1)$ $i-1$表示第一次扔就碎了，$f(n-i)+1$表示第一次扔没碎，则问题会转化为剩余n-i">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-21T02:59:58.865Z">
+<meta property="og:updated_time" content="2019-02-21T07:17:49.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法-动态规划(扔鸡蛋)">
 <meta name="twitter:description" content="动态规划 最优子结构 重叠子问题  算法设计包含四个步骤： 1）描述最优解的结构 2)  递归定义最优解的值 3)  按自底向上的方式计算最优解的值 4) 由计算出出的结果构造一个最优解 N层两蛋问题$f(n)=\min\limits_{i=1}\limits^n(\max(i-1,f(n-i))+1)$ $i-1$表示第一次扔就碎了，$f(n-i)+1$表示第一次扔没碎，则问题会转化为剩余n-i">
@@ -126,7 +126,7 @@
 
 
 
-  <title>数据结构与算法-动态规划(扔鸡蛋) | shl's sky</title>
+  <title>数据结构与算法-动态规划(扔鸡蛋) | shl's sky</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -145,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -455,7 +455,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -707,7 +707,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

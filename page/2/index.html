@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -121,7 +121,7 @@
 
 
 
-  <title>shl's sky</title>
+  <title>shl's sky</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -140,7 +140,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -323,7 +323,7 @@
 <p><strong>特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决策树高度低，决策路径短，决策效率高</strong></p>
 <h4 id="决策树与条件概率分布等价"><a href="#决策树与条件概率分布等价" class="headerlink" title="决策树与条件概率分布等价"></a>决策树与条件概率分布等价</h4><p>决策树还表示给定特征条件下类的条件概率分布。这一条件概率分布定义在特征空间的一个划分(partition)上，将特征空间划分为互不相交的单元(cell)或区域(region)，并在每个单元定义一个类的概率分布就构成了一个条件概率分布。</p>
 <p>决策树构建过程中要使得决策树的复杂度最小</p>
-<p>$T_{cost} =argmin{\sum_t^{N(t)} P(t|x_1…x_t) *Deep(t)}$  </p>
+<p>$T_{cost} =argmin\{\sum_t^{N(t)} P(t|x_1…x_t) *Deep(t)\}$  </p>
 <p>$N(t)​$表示决策树所有叶节点，$P(t|x_1…x_t) ​$表示分类为t的条件概率，$Deep(t)​$表示搜索到叶节点t的深度。</p>
 <p>优秀的决策树$T_{cost}$应该是最小的。</p>
 <h3 id="ID3算法-信息增益"><a href="#ID3算法-信息增益" class="headerlink" title="ID3算法(信息增益)"></a>ID3算法(信息增益)</h3><hr>
@@ -975,13 +975,13 @@
             <h3 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h3><p>一个圆环上有100个灯泡，灯泡有打开和关闭两种状态，圆环上灯泡初始状态随机。按一个灯泡，相邻两个灯泡的状态也会发生变化，即按下中间的灯泡，左中右三个灯泡的状态都会变为原来的相反状态。设计一道算法，使得所有灯泡最后都亮。</p>
 <h3 id="二、分析"><a href="#二、分析" class="headerlink" title="二、分析"></a>二、分析</h3><p>按下$a_2$的灯泡，左中右三个灯泡的状态都会变为原来的相反状态，即1^$a_i,$i={1,2,3}</p>
 <p>对于灯泡$a_i$,我们可以列出哪些灯泡的按下，会影响$a_i$的状态。因此会得到一个矩阵：</p>
-<p>$ \left[<br>\begin{matrix}<br>1      &amp; 1   &amp;0  &amp; \cdots &amp; 1     \<br> 1      &amp; 1  &amp;1    &amp; \cdots &amp; 0      \<br> \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br> 1      &amp; 0    &amp; \cdots &amp;1  &amp; 1      \<br>\end{matrix}<br>\right]​$ </p>
+<p>$ \left[<br>\begin{matrix}<br>1      &amp; 1   &amp;0  &amp; \cdots &amp; 1     \\<br> 1      &amp; 1  &amp;1    &amp; \cdots &amp; 0      \\<br> \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br> 1      &amp; 0    &amp; \cdots &amp;1  &amp; 1      \\<br>\end{matrix}<br>\right]​$ </p>
 <p>影响$a_1$状态的三个灯分别是$a_1,a_2,a_{100}$，同理，影响 $a_2$ 状态的三个灯分别是$a_1,a_2,a_3$</p>
 <p>$x_i$有两个值1，0。1表示按下$x_i$灯泡，0表示不按下$x_i$灯泡。</p>
 <p><strong>灯i的状态由灯i初始状态和影响到它的其他灯按下次数决定</strong></p>
 <p>$s_i=I_i​$  ^ $ x_{i-1}​$^$x_{i}​$^ $x_{i+1}​$</p>
 <p>可得，矩阵异或运算</p>
-<p>$\left[<br>\begin{matrix}<br>i_1    \<br> i_2  \<br> \vdots \<br> i_n \<br>\end{matrix}<br>\right] XOR \left[<br>\begin{matrix}<br>1      &amp; 1   &amp;0  &amp; \cdots &amp; 1     \<br> 1      &amp; 1  &amp;1    &amp; \cdots &amp; 0      \<br> \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br> 1      &amp; 0    &amp; \cdots &amp;1  &amp; 1      \<br>\end{matrix}<br>\right] XOR \left[<br>\begin{matrix}<br>x_1    \<br> x_2  \<br> \vdots \<br> x_n \<br>\end{matrix}<br>\right]=\left[<br>\begin{matrix}<br>1    \<br> 1  \<br> \vdots \<br> 1 \<br>\end{matrix}<br>\right]$ </p>
+<p>$\left[<br>\begin{matrix}<br>i_1    \\<br> i_2  \\<br> \vdots \\<br> i_n \\<br>\end{matrix}<br>\right] XOR \left[<br>\begin{matrix}<br>1      &amp; 1   &amp;0  &amp; \cdots &amp; 1     \\<br> 1      &amp; 1  &amp;1    &amp; \cdots &amp; 0      \\<br> \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br> 1      &amp; 0    &amp; \cdots &amp;1  &amp; 1      \\<br>\end{matrix}<br>\right] XOR \left[<br>\begin{matrix}<br>x_1    \\<br> x_2  \\<br> \vdots \\<br> x_n \\<br>\end{matrix}<br>\right]=\left[<br>\begin{matrix}<br>1    \\<br> 1  \\<br> \vdots \\<br> 1 \\<br>\end{matrix}<br>\right]$ </p>
 <h3 id="三、高斯消元法"><a href="#三、高斯消元法" class="headerlink" title="三、高斯消元法"></a>三、高斯消元法</h3><p><a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%96%AF%E6%B6%88%E5%8E%BB%E6%B3%95" target="_blank" rel="noopener">高斯消元法</a></p>
 <h3 id="四、归纳"><a href="#四、归纳" class="headerlink" title="四、归纳"></a>四、归纳</h3><p>从开关灯问题中，我们可以抽象出此类问题的一些特征。</p>
 <ul>
@@ -1358,7 +1358,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1590,7 +1590,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

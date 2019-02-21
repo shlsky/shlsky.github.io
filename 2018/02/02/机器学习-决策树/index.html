@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/02/02/机器学习-决策树/image-20190202160305519.png">
 <meta property="og:image" content="http://yoursite.com/2018/02/02/机器学习-决策树/image-20190202181541824.png">
 <meta property="og:image" content="http://yoursite.com/2018/02/02/机器学习-决策树/image-20190202181640473.png">
-<meta property="og:updated_time" content="2019-02-03T06:45:04.252Z">
+<meta property="og:updated_time" content="2019-02-21T07:17:26.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-决策树">
 <meta name="twitter:description" content="决策树 定义决策树是表示基于特征对实例进行分类的树形结构  ​      从给定的训练数据集中，依据特征选择的准则，递归的选择最优划分特征，并根据此特征将训练数据进行分割，使得各子数据集有一个最好的分类的过程。  决策树算法3要素：   特征选择 决策树生成 决策树剪枝  特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决">
@@ -130,7 +130,7 @@
 
 
 
-  <title>机器学习-决策树 | shl's sky</title>
+  <title>机器学习-决策树 | shl's sky</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -149,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -327,7 +327,7 @@
 <p><strong>特征选择决定了使用哪些特征来划分特征空间。最优的特征选择是在每次划分之后，分支节点所包含的样本都尽可能属于同一个分类。这样的决策树高度低，决策路径短，决策效率高</strong></p>
 <h4 id="决策树与条件概率分布等价"><a href="#决策树与条件概率分布等价" class="headerlink" title="决策树与条件概率分布等价"></a>决策树与条件概率分布等价</h4><p>决策树还表示给定特征条件下类的条件概率分布。这一条件概率分布定义在特征空间的一个划分(partition)上，将特征空间划分为互不相交的单元(cell)或区域(region)，并在每个单元定义一个类的概率分布就构成了一个条件概率分布。</p>
 <p>决策树构建过程中要使得决策树的复杂度最小</p>
-<p>$T_{cost} =argmin{\sum_t^{N(t)} P(t|x_1…x_t) *Deep(t)}$  </p>
+<p>$T_{cost} =argmin\{\sum_t^{N(t)} P(t|x_1…x_t) *Deep(t)\}$  </p>
 <p>$N(t)​$表示决策树所有叶节点，$P(t|x_1…x_t) ​$表示分类为t的条件概率，$Deep(t)​$表示搜索到叶节点t的深度。</p>
 <p>优秀的决策树$T_{cost}$应该是最小的。</p>
 <h3 id="ID3算法-信息增益"><a href="#ID3算法-信息增益" class="headerlink" title="ID3算法(信息增益)"></a>ID3算法(信息增益)</h3><hr>
@@ -514,7 +514,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -766,7 +766,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
