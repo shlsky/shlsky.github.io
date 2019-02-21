@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="动态规划 最优子结构 重叠子问题  算法设计包含四个步骤： 1）描述最优解的结构 2)  递归定义最优解的值 3)  按自底向上的方式计算最优解的值 4) 由计算出出的结果构造一个最优解 N层两蛋问题$f(n)=\min\limits_{i=1}\limits^n(\max(i-1,f(n-i))+1)$ $i-1$表示第一次扔就碎了，$f(n-i)+1$表示第一次扔没碎，则问题会转化为剩余n-i">
+<meta name="description" content="一、问题一个圆环上有100个灯泡，灯泡有打开和关闭两种状态，圆环上灯泡初始状态随机。按一个灯泡，相邻两个灯泡的状态也会发生变化，即按下中间的灯泡，左中右三个灯泡的状态都会变为原来的相反状态。设计一道算法，使得所有灯泡最后都亮。 二、分析按下$a_2$的灯泡，左中右三个灯泡的状态都会变为原来的相反状态，即1^$a_i,$i={1,2,3} 对于灯泡$a_i$,我们可以列出哪些灯泡的按下，会影响$a_">
 <meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法-动态规划(扔鸡蛋)">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/数据结构与算法-动态规划-扔鸡蛋/index.html">
+<meta property="og:title" content="多变量求解-高斯消元法">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/多变量求解-高斯消元法/index.html">
 <meta property="og:site_name" content="shl&#39;s sky">
-<meta property="og:description" content="动态规划 最优子结构 重叠子问题  算法设计包含四个步骤： 1）描述最优解的结构 2)  递归定义最优解的值 3)  按自底向上的方式计算最优解的值 4) 由计算出出的结果构造一个最优解 N层两蛋问题$f(n)=\min\limits_{i=1}\limits^n(\max(i-1,f(n-i))+1)$ $i-1$表示第一次扔就碎了，$f(n-i)+1$表示第一次扔没碎，则问题会转化为剩余n-i">
+<meta property="og:description" content="一、问题一个圆环上有100个灯泡，灯泡有打开和关闭两种状态，圆环上灯泡初始状态随机。按一个灯泡，相邻两个灯泡的状态也会发生变化，即按下中间的灯泡，左中右三个灯泡的状态都会变为原来的相反状态。设计一道算法，使得所有灯泡最后都亮。 二、分析按下$a_2$的灯泡，左中右三个灯泡的状态都会变为原来的相反状态，即1^$a_i,$i={1,2,3} 对于灯泡$a_i$,我们可以列出哪些灯泡的按下，会影响$a_">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-21T02:59:58.865Z">
+<meta property="og:updated_time" content="2019-02-21T02:55:30.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构与算法-动态规划(扔鸡蛋)">
-<meta name="twitter:description" content="动态规划 最优子结构 重叠子问题  算法设计包含四个步骤： 1）描述最优解的结构 2)  递归定义最优解的值 3)  按自底向上的方式计算最优解的值 4) 由计算出出的结果构造一个最优解 N层两蛋问题$f(n)=\min\limits_{i=1}\limits^n(\max(i-1,f(n-i))+1)$ $i-1$表示第一次扔就碎了，$f(n-i)+1$表示第一次扔没碎，则问题会转化为剩余n-i">
+<meta name="twitter:title" content="多变量求解-高斯消元法">
+<meta name="twitter:description" content="一、问题一个圆环上有100个灯泡，灯泡有打开和关闭两种状态，圆环上灯泡初始状态随机。按一个灯泡，相邻两个灯泡的状态也会发生变化，即按下中间的灯泡，左中右三个灯泡的状态都会变为原来的相反状态。设计一道算法，使得所有灯泡最后都亮。 二、分析按下$a_2$的灯泡，左中右三个灯泡的状态都会变为原来的相反状态，即1^$a_i,$i={1,2,3} 对于灯泡$a_i$,我们可以列出哪些灯泡的按下，会影响$a_">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/07/数据结构与算法-动态规划-扔鸡蛋/">
+  <link rel="canonical" href="http://yoursite.com/2017/03/21/多变量求解-高斯消元法/">
 
 
 
 
 
-  <title>数据结构与算法-动态规划(扔鸡蛋) | shl's sky</title>
+  <title>多变量求解-高斯消元法 | shl's sky</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/数据结构与算法-动态规划-扔鸡蛋/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/多变量求解-高斯消元法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="linfengshl">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据结构与算法-动态规划(扔鸡蛋)</h1>
+          <h1 class="post-title" itemprop="name headline">多变量求解-高斯消元法</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T11:52:06+08:00">
-                2017-12-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T09:47:02+08:00">
+                2017-03-21
               </time>
             
 
@@ -310,19 +310,24 @@
       
 
       
-        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><ul>
-<li>最优子结构</li>
-<li>重叠子问题</li>
+        <h3 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h3><p>一个圆环上有100个灯泡，灯泡有打开和关闭两种状态，圆环上灯泡初始状态随机。按一个灯泡，相邻两个灯泡的状态也会发生变化，即按下中间的灯泡，左中右三个灯泡的状态都会变为原来的相反状态。设计一道算法，使得所有灯泡最后都亮。</p>
+<h3 id="二、分析"><a href="#二、分析" class="headerlink" title="二、分析"></a>二、分析</h3><p>按下$a_2$的灯泡，左中右三个灯泡的状态都会变为原来的相反状态，即1^$a_i,$i={1,2,3}</p>
+<p>对于灯泡$a_i$,我们可以列出哪些灯泡的按下，会影响$a_i$的状态。因此会得到一个矩阵：</p>
+<p>$ \left[<br>\begin{matrix}<br>1      &amp; 1   &amp;0  &amp; \cdots &amp; 1     \<br> 1      &amp; 1  &amp;1    &amp; \cdots &amp; 0      \<br> \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br> 1      &amp; 0    &amp; \cdots &amp;1  &amp; 1      \<br>\end{matrix}<br>\right]​$ </p>
+<p>影响$a_1$状态的三个灯分别是$a_1,a_2,a_{100}$，同理，影响 $a_2$ 状态的三个灯分别是$a_1,a_2,a_3$</p>
+<p>$x_i$有两个值1，0。1表示按下$x_i$灯泡，0表示不按下$x_i$灯泡。</p>
+<p><strong>灯i的状态由灯i初始状态和影响到它的其他灯按下次数决定</strong></p>
+<p>$s_i=I_i​$  ^ $ x_{i-1}​$^$x_{i}​$^ $x_{i+1}​$</p>
+<p>可得，矩阵异或运算</p>
+<p>$\left[<br>\begin{matrix}<br>i_1    \<br> i_2  \<br> \vdots \<br> i_n \<br>\end{matrix}<br>\right] XOR \left[<br>\begin{matrix}<br>1      &amp; 1   &amp;0  &amp; \cdots &amp; 1     \<br> 1      &amp; 1  &amp;1    &amp; \cdots &amp; 0      \<br> \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br> 1      &amp; 0    &amp; \cdots &amp;1  &amp; 1      \<br>\end{matrix}<br>\right] XOR \left[<br>\begin{matrix}<br>x_1    \<br> x_2  \<br> \vdots \<br> x_n \<br>\end{matrix}<br>\right]=\left[<br>\begin{matrix}<br>1    \<br> 1  \<br> \vdots \<br> 1 \<br>\end{matrix}<br>\right]$ </p>
+<h3 id="三、高斯消元法"><a href="#三、高斯消元法" class="headerlink" title="三、高斯消元法"></a>三、高斯消元法</h3><p><a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%96%AF%E6%B6%88%E5%8E%BB%E6%B3%95" target="_blank" rel="noopener">高斯消元法</a></p>
+<h3 id="四、归纳"><a href="#四、归纳" class="headerlink" title="四、归纳"></a>四、归纳</h3><p>从开关灯问题中，我们可以抽象出此类问题的一些特征。</p>
+<ul>
+<li>问题的解由数个子问题的解组合而成。</li>
+<li>子问题的解与若干变量相关。</li>
+<li>问题可以转化为多元方程组的形式。</li>
+<li>运用高斯消元法，判断方程组是否有解。</li>
 </ul>
-<p>算法设计包含四个步骤：</p>
-<p>1）描述最优解的结构</p>
-<p>2)  递归定义最优解的值</p>
-<p>3)  按自底向上的方式计算最优解的值</p>
-<p>4) 由计算出出的结果构造一个最优解</p>
-<h2 id="N层两蛋问题"><a href="#N层两蛋问题" class="headerlink" title="N层两蛋问题"></a>N层两蛋问题</h2><p>$f(n)=\min\limits_{i=1}\limits^n(\max(i-1,f(n-i))+1)$</p>
-<p>$i-1$表示第一次扔就碎了，$f(n-i)+1$表示第一次扔没碎，则问题会转化为剩余n-i的问题​</p>
-<h2 id="M层N蛋问题"><a href="#M层N蛋问题" class="headerlink" title="M层N蛋问题"></a>M层N蛋问题</h2><p>$f(M,N)=\min\limits_{i=1}\limits^M(f(i,N-1),f(M-i,N))+1$</p>
-<p>$f(i,N-1)$表示第I层鸡蛋碎了，$f(M-i,N)$表示第i层鸡蛋没碎</p>
 
       
     </div>
@@ -353,8 +358,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/21/多变量求解-高斯消元法/" rel="next" title="多变量求解-高斯消元法">
-                <i class="fa fa-chevron-left"></i> 多变量求解-高斯消元法
+              <a href="/2016/08/15/Git-Submodule的理解/" rel="next" title="Git Submodule的理解">
+                <i class="fa fa-chevron-left"></i> Git Submodule的理解
               </a>
             
           </div>
@@ -363,8 +368,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/29/Hexo-GithubPage-Typora个人博客搭建/" rel="prev" title="Hexo GithubPage Typora个人博客搭建">
-                Hexo GithubPage Typora个人博客搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/07/数据结构与算法-动态规划-扔鸡蛋/" rel="prev" title="数据结构与算法-动态规划(扔鸡蛋)">
+                数据结构与算法-动态规划(扔鸡蛋) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,7 +493,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#N层两蛋问题"><span class="nav-number">2.</span> <span class="nav-text">N层两蛋问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M层N蛋问题"><span class="nav-number">3.</span> <span class="nav-text">M层N蛋问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、问题"><span class="nav-number">1.</span> <span class="nav-text">一、问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、分析"><span class="nav-number">2.</span> <span class="nav-text">二、分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、高斯消元法"><span class="nav-number">3.</span> <span class="nav-text">三、高斯消元法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、归纳"><span class="nav-number">4.</span> <span class="nav-text">四、归纳</span></a></li></ol></div>
             
 
           </div>

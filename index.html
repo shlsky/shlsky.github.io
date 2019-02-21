@@ -1275,279 +1275,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/Spring事务实践与原理/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linfengshl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shl's sky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/15/Spring事务实践与原理/" itemprop="url">Spring事务实践与原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T16:11:30+08:00">
-                2019-02-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/Git-撤销合并/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linfengshl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shl's sky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/15/Git-撤销合并/" itemprop="url">Git 撤销合并</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T14:57:36+08:00">
-                2019-02-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Git-撤销合并"><a href="#Git-撤销合并" class="headerlink" title="Git 撤销合并"></a>Git 撤销合并</h1><p><a href="http://blog.psjay.com/posts/git-revert-merge-commit/" target="_blank" rel="noopener">引用自PSJay Blog</a></p>
-<p>Git 的 revert 命令可以用来撤销提交（commit），对于常规的提交来说，revert 命令十分直观易用，相当于做一次被 revert 的提交的「反操作」并形成一个新的 commit，但是当你需要撤销一个合并（merge）的时候，事情就变得稍微复杂了一些。</p>
-<h2 id="Merge-Commit"><a href="#Merge-Commit" class="headerlink" title="Merge Commit"></a>Merge Commit</h2><p>在描述 merge commit 之前，先来简短地描述一下常规的 commit。每当你做了一批操作（增加、修改、或删除）之后，你执行 <code>git commit</code> 便会得到一个常规的 Commit。执行 <code>git show &lt;commit&gt;</code> 将会输出详细的增删情况。</p>
-<p>Merge commit 则不是这样。每当你使用 <code>git merge</code> 合并两个分支，你将会得到一个新的 <strong>merge</strong> commit。执行 <code>git show &lt;commit&gt;</code>之后，会有类似的输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`commit 19b7d40d2ebefb4236a8ab630f89e4afca6e9dbe Merge: b0ef24a cca45f9 ......`</span><br></pre></td></tr></table></figure>
-<p>其中，Merge 这一行代表的是这个合并 <strong>parents</strong>，<strong>它可以用来表明 merge 操作的线索</strong>。</p>
-<p>举个例子，通常，我们的稳定代码都在 master 分支，而开发过程使用 dev 分支，当开发完成后，再把 dev 分支 merge 进 master 分支：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h (master)            </span><br><span class="line">            \      /             </span><br><span class="line">            d -&gt; e  (dev)`</span><br></pre></td></tr></table></figure>
-<p>上图中，<code>g</code> 是 merge commit，其他的都是常规 commit。<code>g</code> 的两个 parent 分别是 <code>f</code> 和 <code>e</code>。</p>
-<h2 id="Revert-a-Merge-Commit"><a href="#Revert-a-Merge-Commit" class="headerlink" title="Revert a Merge Commit"></a>Revert a Merge Commit</h2><p>当你使用 <code>git revert</code> 撤销一个 merge commit 时，如果除了 commit 号而不加任何其他参数，git 将会提示错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git revert g error: Commit g is a merge but no -m option was given. fatal: revert failed`</span><br></pre></td></tr></table></figure>
-<p>在你合并两个分支并试图撤销时，Git 并不知道你到底需要保留哪一个分支上所做的修改。从 Git 的角度来看，<code>master</code> 分支和 <code>dev</code> 在地位上是完全平等的，只是在 workflow 中，<code>master</code> 被人为约定成了「主分支」。</p>
-<p>于是 Git 需要你通过 <code>m</code> 或 <code>mainline</code> 参数来指定「主线」。merge commit 的 parents 一定是在两个不同的线索上，因此可以通过 parent 来表示「主线」。<code>m</code> 参数的值可以是 1 或者 2，对应着 parent 在 merge commit 信息中的顺序。</p>
-<p>以上面那张图为例，我们查看 commit <code>g</code> 的内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git show g commit g Merge: f e`</span><br></pre></td></tr></table></figure>
-<p>那么，<code>$ git revert -m 1 g</code> 将会保留 master 分支上的修改，撤销 dev 分支上的修改。</p>
-<p>撤销成功之后，Git 将会生成一个新的 Commit，提交历史就成了这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G (master)            </span><br><span class="line">            \      /             </span><br><span class="line">            d -&gt; e  (dev)`</span><br></pre></td></tr></table></figure>
-<p>其中 <code>G</code> 是撤销 <code>g</code> 生成的 commit。通过 <code>$ git show G</code> 之后，我们会发现 <code>G</code> 是一个<strong>常规</strong>提交，内容就是撤销 merge 时<strong>被丢弃</strong>的那条线索的所有 commit 的「反操作」的合集。</p>
-<h2 id="Recover-a-Reverted-Merging"><a href="#Recover-a-Reverted-Merging" class="headerlink" title="Recover a Reverted Merging"></a>Recover a Reverted Merging</h2><p>上面的提交历史在实践中通常对应着这样的情况：</p>
-<p>工程师在 master 分支切出了 dev 分支编写新功能，开发完成后合并 dev 分支到 master 分支并上线。上线之后，发现了 dev 分支引入了严重的 bug，而其他人已经在最新的 master 上切出了新的分支并进行开发，所以不能简单地在 master 分支上通过重置（<code>git reset</code>）来回滚代码，只能选择 revert 那个 merge commit。</p>
-<p>但是事情还没有结束。工程师必须切回 dev 分支修复那些 bug，于是提交记录变成了这个样子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G -&gt; i (master)            </span><br><span class="line">           \      /             </span><br><span class="line">           d -&gt; e -&gt; j -&gt; k (dev)`</span><br></pre></td></tr></table></figure>
-<p>工程师返回 dev 分支通过 <code>j</code>，<code>k</code> 两个 commit 修复了 bug，其他工程师在 master 上有了新的提交 <code>i</code>。现在到了 dev 分支的内容重新上线的时候了。</p>
-<p>直觉上来说，还是和之前一样，把 dev 分支合并到 master 分支就好了。于是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git checkout master $ git merge dev`</span><br></pre></td></tr></table></figure>
-<p>得到的提交记录变成了这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G -&gt; i -- m (master)            </span><br><span class="line">			\      /                    /             </span><br><span class="line">			d -&gt; e -&gt; j -&gt; k ---------    (dev)`</span><br></pre></td></tr></table></figure>
-<p><code>m</code> 是新的 merge commit。需要注意的是，这<strong>不能</strong>得到我们期望的结果。因为 <code>d</code> 和 <code>e</code> 两个提交曾经被丢弃过，如此合并到 master 的代码，并不会重新包含 <code>d</code> 和 <code>e</code> 两个提交的内容，相当于只有 dev 上的新 commit 被合并了进来，而 dev 分支之前的内容，依然是被 revert 掉了。</p>
-<p>所以，如果想恢复整个 dev 所做的修改，应该：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git checkout master $ git revert G $ git merge dev`</span><br></pre></td></tr></table></figure>
-<p>于是，提交历史变成了这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G -&gt; i -&gt; G&apos; -- m (master)            </span><br><span class="line">			\      /                          /             </span><br><span class="line">			d -&gt; e -&gt; j -&gt; k ---------------    (dev)`</span><br></pre></td></tr></table></figure>
-<p>其中 <code>G&#39;</code> 是这次 revert 操作生成的 commit，把之前撤销合并时丢弃的代码恢复了回来，然后再 merge dev 分支，把解 bug 写的新代码合并到 master 分支。</p>
-<p>现在，工程师可以放心地上线没有 bug 的新功能了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/03/深入分析Spring-AOP机制/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1767,6 +1494,279 @@
             <h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>正则化一类优化算法的思维方式：</p>
 <p><img src="/2019/02/02/机器学习-正则化/image-20190202182044853.png" alt="image-20190202182044853"></p>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/Git-撤销合并/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linfengshl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shl's sky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/06/Git-撤销合并/" itemprop="url">Git 撤销合并</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-06T14:57:36+08:00">
+                2018-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git-撤销合并"><a href="#Git-撤销合并" class="headerlink" title="Git 撤销合并"></a>Git 撤销合并</h1><p><a href="http://blog.psjay.com/posts/git-revert-merge-commit/" target="_blank" rel="noopener">引用自PSJay Blog</a></p>
+<p>Git 的 revert 命令可以用来撤销提交（commit），对于常规的提交来说，revert 命令十分直观易用，相当于做一次被 revert 的提交的「反操作」并形成一个新的 commit，但是当你需要撤销一个合并（merge）的时候，事情就变得稍微复杂了一些。</p>
+<h2 id="Merge-Commit"><a href="#Merge-Commit" class="headerlink" title="Merge Commit"></a>Merge Commit</h2><p>在描述 merge commit 之前，先来简短地描述一下常规的 commit。每当你做了一批操作（增加、修改、或删除）之后，你执行 <code>git commit</code> 便会得到一个常规的 Commit。执行 <code>git show &lt;commit&gt;</code> 将会输出详细的增删情况。</p>
+<p>Merge commit 则不是这样。每当你使用 <code>git merge</code> 合并两个分支，你将会得到一个新的 <strong>merge</strong> commit。执行 <code>git show &lt;commit&gt;</code>之后，会有类似的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`commit 19b7d40d2ebefb4236a8ab630f89e4afca6e9dbe Merge: b0ef24a cca45f9 ......`</span><br></pre></td></tr></table></figure>
+<p>其中，Merge 这一行代表的是这个合并 <strong>parents</strong>，<strong>它可以用来表明 merge 操作的线索</strong>。</p>
+<p>举个例子，通常，我们的稳定代码都在 master 分支，而开发过程使用 dev 分支，当开发完成后，再把 dev 分支 merge 进 master 分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h (master)            </span><br><span class="line">            \      /             </span><br><span class="line">            d -&gt; e  (dev)`</span><br></pre></td></tr></table></figure>
+<p>上图中，<code>g</code> 是 merge commit，其他的都是常规 commit。<code>g</code> 的两个 parent 分别是 <code>f</code> 和 <code>e</code>。</p>
+<h2 id="Revert-a-Merge-Commit"><a href="#Revert-a-Merge-Commit" class="headerlink" title="Revert a Merge Commit"></a>Revert a Merge Commit</h2><p>当你使用 <code>git revert</code> 撤销一个 merge commit 时，如果除了 commit 号而不加任何其他参数，git 将会提示错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git revert g error: Commit g is a merge but no -m option was given. fatal: revert failed`</span><br></pre></td></tr></table></figure>
+<p>在你合并两个分支并试图撤销时，Git 并不知道你到底需要保留哪一个分支上所做的修改。从 Git 的角度来看，<code>master</code> 分支和 <code>dev</code> 在地位上是完全平等的，只是在 workflow 中，<code>master</code> 被人为约定成了「主分支」。</p>
+<p>于是 Git 需要你通过 <code>m</code> 或 <code>mainline</code> 参数来指定「主线」。merge commit 的 parents 一定是在两个不同的线索上，因此可以通过 parent 来表示「主线」。<code>m</code> 参数的值可以是 1 或者 2，对应着 parent 在 merge commit 信息中的顺序。</p>
+<p>以上面那张图为例，我们查看 commit <code>g</code> 的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git show g commit g Merge: f e`</span><br></pre></td></tr></table></figure>
+<p>那么，<code>$ git revert -m 1 g</code> 将会保留 master 分支上的修改，撤销 dev 分支上的修改。</p>
+<p>撤销成功之后，Git 将会生成一个新的 Commit，提交历史就成了这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G (master)            </span><br><span class="line">            \      /             </span><br><span class="line">            d -&gt; e  (dev)`</span><br></pre></td></tr></table></figure>
+<p>其中 <code>G</code> 是撤销 <code>g</code> 生成的 commit。通过 <code>$ git show G</code> 之后，我们会发现 <code>G</code> 是一个<strong>常规</strong>提交，内容就是撤销 merge 时<strong>被丢弃</strong>的那条线索的所有 commit 的「反操作」的合集。</p>
+<h2 id="Recover-a-Reverted-Merging"><a href="#Recover-a-Reverted-Merging" class="headerlink" title="Recover a Reverted Merging"></a>Recover a Reverted Merging</h2><p>上面的提交历史在实践中通常对应着这样的情况：</p>
+<p>工程师在 master 分支切出了 dev 分支编写新功能，开发完成后合并 dev 分支到 master 分支并上线。上线之后，发现了 dev 分支引入了严重的 bug，而其他人已经在最新的 master 上切出了新的分支并进行开发，所以不能简单地在 master 分支上通过重置（<code>git reset</code>）来回滚代码，只能选择 revert 那个 merge commit。</p>
+<p>但是事情还没有结束。工程师必须切回 dev 分支修复那些 bug，于是提交记录变成了这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G -&gt; i (master)            </span><br><span class="line">           \      /             </span><br><span class="line">           d -&gt; e -&gt; j -&gt; k (dev)`</span><br></pre></td></tr></table></figure>
+<p>工程师返回 dev 分支通过 <code>j</code>，<code>k</code> 两个 commit 修复了 bug，其他工程师在 master 上有了新的提交 <code>i</code>。现在到了 dev 分支的内容重新上线的时候了。</p>
+<p>直觉上来说，还是和之前一样，把 dev 分支合并到 master 分支就好了。于是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git checkout master $ git merge dev`</span><br></pre></td></tr></table></figure>
+<p>得到的提交记录变成了这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G -&gt; i -- m (master)            </span><br><span class="line">			\      /                    /             </span><br><span class="line">			d -&gt; e -&gt; j -&gt; k ---------    (dev)`</span><br></pre></td></tr></table></figure>
+<p><code>m</code> 是新的 merge commit。需要注意的是，这<strong>不能</strong>得到我们期望的结果。因为 <code>d</code> 和 <code>e</code> 两个提交曾经被丢弃过，如此合并到 master 的代码，并不会重新包含 <code>d</code> 和 <code>e</code> 两个提交的内容，相当于只有 dev 上的新 commit 被合并了进来，而 dev 分支之前的内容，依然是被 revert 掉了。</p>
+<p>所以，如果想恢复整个 dev 所做的修改，应该：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`$ git checkout master $ git revert G $ git merge dev`</span><br></pre></td></tr></table></figure>
+<p>于是，提交历史变成了这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`a -&gt; b -&gt; c -&gt; f -- g -&gt; h -&gt; G -&gt; i -&gt; G&apos; -- m (master)            </span><br><span class="line">			\      /                          /             </span><br><span class="line">			d -&gt; e -&gt; j -&gt; k ---------------    (dev)`</span><br></pre></td></tr></table></figure>
+<p>其中 <code>G&#39;</code> 是这次 revert 操作生成的 commit，把之前撤销合并时丢弃的代码恢复了回来，然后再 merge dev 分支，把解 bug 写的新代码合并到 master 分支。</p>
+<p>现在，工程师可以放心地上线没有 bug 的新功能了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/Spring事务实践与原理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linfengshl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shl's sky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/15/Spring事务实践与原理/" itemprop="url">Spring事务实践与原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-15T16:11:30+08:00">
+                2018-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
           
         
       
@@ -2037,7 +2037,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
